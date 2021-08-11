@@ -1,0 +1,36 @@
+<div class="container text-center">
+  <h1 style="text-align:center">{{title}}</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="search-hero">
+      <input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a company by ticker or name">
+    </div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Ticker</th>
+        <th>Name</th>
+        <th>Marker</th>
+        <th>Locale</th>
+        <th>Market</th>
+        <th>Primary Exchange</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let hero of heroes | filter:searchText; let i = index" (click)="handleEvent(hero.ticker)">
+        <td>{{i}}</td>
+        <td>{{hero.ticker}}</td>
+        <td>{{hero.name}}</td>
+        <td>{{hero.marker}}</td>
+        <td>{{hero.locale}}</td>
+        <td>{{hero.market}}</td>
+        <td>{{hero.primary_exchange}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-profile></app-profile>
+  <!-- <app-profile></app-profile> -->
+</div>

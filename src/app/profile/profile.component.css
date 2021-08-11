@@ -1,0 +1,17 @@
+#wrap {
+  margin: 0 auto;
+  width: 200px;
+}
+#loading{
+    z-index: 10;
+    height: 100px;
+    width: 200px;
+    padding: 40px;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-bottom:10px;
+}
+#app{
+  position: relative;
+  width: 100%;
+}
