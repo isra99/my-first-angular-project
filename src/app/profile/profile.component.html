@@ -1,45 +1,56 @@
-<div [ngSwitch]="load">
-    <div *ngSwitchCase="true">
-        <div id="app">
-            <div id="wrap">
-                <mat-spinner></mat-spinner>
+<div style="margin: 42px;">
+    <div [ngSwitch]="load">
+        <div *ngSwitchCase="true">
+            <div id="app">
+                <div id="wrap">
+                    <mat-spinner></mat-spinner>
+                </div>
             </div>
         </div>
-    </div>
-    <div *ngSwitchCase="false">
-        <div *ngIf="show">
-            <div class="row">
-                <div class="col-4 col-s-4">
-                    <img alt="logo" width="100%" src={{profileData.logo}}>
+        <div *ngSwitchCase="false">
+            <div *ngIf="show">
+                <div style="margin-left: 5px;"><h1>{{profileData.name}}</h1></div>
+                <mat-grid-list cols="1" rowHeight="370px">
+                    <mat-grid-tile>
+                        <span class="left-align-forced">
+                            <img alt="logo" width="100%" src="../../assets/images/not-found" />
+                        </span>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <div>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Stock Info
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-grid-list cols="2" rowHeight="42px">
+                            <mat-grid-tile><span class="left-align-forced">Open price of the day</span></mat-grid-tile>
+                            <mat-grid-tile><span class="left-align-forced">{{stockData.open}}</span></mat-grid-tile>
+                        </mat-grid-list>
+                        <mat-divider></mat-divider>
+                        <mat-grid-list cols="2" rowHeight="42px">
+                            <mat-grid-tile><span class="left-align-forced">High price of the day</span></mat-grid-tile>
+                            <mat-grid-tile><span class="left-align-forced">{{stockData.high}}</span></mat-grid-tile>
+                        </mat-grid-list>
+                        <mat-divider></mat-divider>
+                        <mat-grid-list cols="2" rowHeight="42px">
+                            <mat-grid-tile><span class="left-align-forced">Low price of the day</span></mat-grid-tile>
+                            <mat-grid-tile><span class="left-align-forced">{{stockData.low}}</span></mat-grid-tile>
+                        </mat-grid-list>
+                        <mat-divider></mat-divider>
+                        <mat-grid-list cols="2" rowHeight="42px">
+                            <mat-grid-tile><span class="left-align-forced">Close price</span></mat-grid-tile>
+                            <mat-grid-tile><span class="left-align-forced">{{stockData.close}}</span></mat-grid-tile>
+                        </mat-grid-list>
+                        <mat-divider></mat-divider>
+                        <mat-grid-list cols="2" rowHeight="42px">
+                            <mat-grid-tile><span class="left-align-forced">Previous close price</span></mat-grid-tile>
+                            <mat-grid-tile><span class="left-align-forced">{{stockData.preMarket}}</span></mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-expansion-panel>                
                 </div>
-                <div class="col-8 col-s-12">
-                    <h1>{{profileData.name}}</h1>,
-                </div>
-            </div>
-            <div>
-                <table class="table table-striped">
-                    <tr>
-                        <th>Open price of the day</th>
-                        <td>{{stockData.open}}</td>
-                    </tr>
-                    <tr>
-                        <th>High price of the day</th>
-                        <td>{{stockData.high}}</td>
-                    </tr>
-                    <tr>
-                        <th>Low price of the day</th>
-                        <td>{{stockData.low}}</td>
-                    </tr>
-                    <tr>
-                        <th>Close price</th>
-                        <td>{{stockData.close}}</td>
-                    </tr>
-                    <tr>
-                        <th>Previous close price</th>
-                        <td>{{stockData.preMarket}}</td>
-                    </tr>
-                </table>
-            </div>
+            </div>        
         </div>
     </div>
 </div>

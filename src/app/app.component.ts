@@ -19,10 +19,14 @@ export class AppComponent  {
   heroes = {};
 
   ngOnInit(){
-    this.searchService.fetchData().subscribe(data => this.heroes = data.results);
+    this.searchService.fetchData("AAPL").subscribe(data => this.heroes = data.results);
   }
 
-  handleEvent(e){
+  handleChange(e){
+    this.store.dispatch({type: "SET_INPUT_VALUE", data:e.target.value});
+    this.store.dispatch({type: "SHOW_PROFILE", data:false});
+  }
+  handleClick(e){
     this.store.dispatch({type: "SET_SYMBOL", data:e}); 
   }
 }

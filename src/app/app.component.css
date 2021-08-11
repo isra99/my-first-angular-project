@@ -3,8 +3,10 @@
     padding-bottom: 10px;
     color: #405065;
   }
-  
-  .search-hero {
+  .search-container {
+    background-color:ivory;
+  }
+  .search {
     padding-bottom: 50px;
     margin:auto;
   }

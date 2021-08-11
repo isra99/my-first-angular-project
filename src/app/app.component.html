@@ -1,36 +1,25 @@
-<div class="container text-center">
-  <h1 style="text-align:center">{{title}}</h1>
-</div>
 <div class="container">
   <div class="row">
-    <div class="search-hero">
-      <input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a company by ticker or name">
+    <div class="container text-center">
+      <h1 style="text-align:center">{{title}}</h1>
     </div>
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th>Id</th>
-        <th>Ticker</th>
-        <th>Name</th>
-        <th>Marker</th>
-        <th>Locale</th>
-        <th>Market</th>
-        <th>Primary Exchange</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let hero of heroes | filter:searchText; let i = index" (click)="handleEvent(hero.ticker)">
-        <td>{{i}}</td>
-        <td>{{hero.ticker}}</td>
-        <td>{{hero.name}}</td>
-        <td>{{hero.marker}}</td>
-        <td>{{hero.locale}}</td>
-        <td>{{hero.market}}</td>
-        <td>{{hero.primary_exchange}}</td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="search">
+      <mat-grid-list cols="1" rowHeight="70px">
+        <mat-grid-tile>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Search Company </mat-label>
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput (input)="handleChange($event)">
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
   </div>
-  <app-profile></app-profile>
-  <!-- <app-profile></app-profile> -->
+  <div class="content">
+    <br />
+    <app-table-pagination></app-table-pagination>
+    <br />
+    <app-profile></app-profile>
+    <br />
+  </div>
 </div>

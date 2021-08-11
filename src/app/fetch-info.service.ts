@@ -25,6 +25,9 @@ export class FetchInfoService {
   getSymbol(){
     return this.store.select('appReducer');
   }
+  getShow(){
+    return this.store.select('appReducer');
+  }
   getLogo(){
     return this.store.select('appReducer').subscribe(state => {
       return state.info.logo;
